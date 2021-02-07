@@ -6,6 +6,9 @@ const handleErrors = (err) => {
   return errors;
 }
 
+/**
+ * get all the recipes
+ */
 module.exports.getRecipes = async (req, red) => {
   try {
     const recipeList = await Recipe.find();
@@ -16,6 +19,10 @@ module.exports.getRecipes = async (req, red) => {
   }
 };
 
+/**
+ * get a recipe from a recipeId
+ * params: recipeId
+ */
 module.exports.getRecipe = async (req, res) => {
   const { recipeId } = req.params;
   try {
@@ -27,6 +34,13 @@ module.exports.getRecipe = async (req, res) => {
   }
 };
 
+/**
+ * Insert a new recipe
+ * body: recipe: 
+ *  name: String, 
+ *  totalPrice: {unit: Number, cents: Number}, 
+ *  foods: [{foodId: ObjectId, quantity: String}]
+ */
 module.exports.insertRecipe = async (req, res) => {
   const { name, totalPrice, foods } = req.body;
   try {
@@ -40,6 +54,13 @@ module.exports.insertRecipe = async (req, res) => {
   }
 };
 
+/**
+ * update a recipe from recipeId
+ * recipe: 
+ *  name: String, 
+ *  totalPrice: {unit: Number, cents: Number}, 
+ *  foods: [{foodId: ObjectId, quantity: String}]
+ */
 module.exports.updateRecipe = async (req, res) => {
   const { recipeId } = req.params;
   const { name, totalPrice, foods } = req.body;
@@ -53,6 +74,10 @@ module.exports.updateRecipe = async (req, res) => {
   }
 };
 
+/**
+ * delete a recipe from recipeId
+ * params: recipeId
+ */
 module.exports.deleteRecipe = async (req, res) => {
   const { recipeId } = req.params;
 
