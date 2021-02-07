@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+const foodRoutes = require('./routes/food.routes');
 const recipesRoutes = require('./routes/recipes.routes');
 
 require("dotenv").config();
@@ -28,6 +29,8 @@ app.listen(process.env.PORT, () => {
   console.log("✅ Server started");
 });
 
+app.use('/api', foodRoutes);
 app.use('/api', recipesRoutes);
+
 
 module.exports = app;
