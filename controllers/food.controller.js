@@ -1,4 +1,3 @@
-const { findOneAndUpdate } = require('../models/Food.model');
 const Food = require('../models/Food.model');
 
 const handleErrors = (err) => {
