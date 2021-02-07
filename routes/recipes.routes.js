@@ -3,6 +3,6 @@ const router = Router();
 
 const BASE_NAME = "recipes";
 
-router.get(`/${BASE_NAME}`, (req, res) => console.log('recipe get'))
+router.get(`/${BASE_NAME}`, (req, res) => console.log(`/${BASE_NAME} GET`))
 
 module.exports = router;
