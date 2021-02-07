@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const foodRoutes = require('./routes/food.routes');
 const recipesRoutes = require('./routes/recipes.routes');
+const stockRoutes = require('./routes/stock.routes');
 
 require("dotenv").config();
 const corsConfig = { credentials: true, origin: process.env.FRONT_ENDPOINT };
@@ -31,6 +32,7 @@ app.listen(process.env.PORT, () => {
 
 app.use('/api', foodRoutes);
 app.use('/api', recipesRoutes);
+app.use('/api', stockRoutes);
 
 
 module.exports = app;
