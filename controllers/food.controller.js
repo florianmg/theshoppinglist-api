@@ -38,6 +38,21 @@ module.exports.getFoods = async (req, res) => {
 }
 
 /**
+ * Get a food item from his id
+ * params: foodId
+ */
+module.exports.getFood = async (req, res) => {
+  const { foodId } = req.params;
+  try {
+    const food = await Food.findById({foodId});
+    return res.status(201).json({food});
+  } catch (err) {
+    const errors = handleErrors(err);
+    return res.status(400).json({errors});
+  }
+}
+
+/**
  * Get a foodList from a category ID
  */
 module.exports.getFoodsByCategory = async (req, res) => {
